@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+  namespace: microservices-nodejs
+spec:
+  selector:
+    app: user-service
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: ClusterIP

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: nodejs
+  name: nodejs-app
+  labels:
+    app: nodejs
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+        - name: nodejs
+          image: 676206915498.dkr.ecr.us-east-1.amazonaws.com/test-kuber:latest
+          ports:
+            - containerPort: 8080

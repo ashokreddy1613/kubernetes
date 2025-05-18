@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: microservices-nodejs
+  name: product-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+      - name: product-service
+        image: 676206915498.dkr.ecr.us-east-1.amazonaws.com/test-kuber:product-service
+        ports:
+        - containerPort: 3000
